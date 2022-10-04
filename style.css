@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  line-height: 1;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  gap: 300px;
+  /* justify-content: center; */
+  align-items: center;
+  /* background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("background.jpg");
+     */
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url("back2.webp");
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.hero-img {
+  width: 500px;
+  height: 500px;
+  background-size: cover;
+  border-radius: 9px;
+  border: solid 2px #000;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  /* border: solid 2px linear-gradient(90deg, #037ade, #03e5b7); */
+  border-image: linear-gradient(#037ade, #03e5b7) 30;
+  border-width: 5px;
+  border-radius: 10px;
+  border-style: solid;
+  background-image: url("https://www.lovesove.com/wp-content/uploads/2021/06/Baby-Boy-Dp-For-Whatsapp-Lovesove.jpg");
+
+  /* background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url("sapan.jpeg"); */
+}
+
+.hero-img:hover {
+  transform: scale(1.08);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.navigation {
+  background-image: linear-gradient(90deg, #037ade, #03e5b7);
+
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  position: fixed;
+}
+.f-nav {
+  position: fixed;
+}
+.nav-ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.name {
+  font-family: "Ubuntu";
+  font-size: 30px;
+}
+
+.name:hover {
+  transform: scale(1.05);
+
+  transition: all 0.3s ease-in-out;
+}
+span {
+  font-size: 28px;
+  color: #fff;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 200px 100px;
+  gap: 30px;
+  /* height: 30%; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.content-h1 {
+  color: #fff;
+  font-size: 40px;
+}
+.content-p {
+  line-height: 1.4;
+  color: #f1f3f5;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 24px;
+  font-weight: 500;
+  align-self: flex-start;
+  border-radius: 9px;
+  background-color: #fff;
+  color: #343a40;
+}
+.btn-1 {
+  padding: 12px 24px;
+  width: 300px;
+  margin-left: -25px;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  /* align-self: flex-start; */
+  /* border-radius: 9px; */
+  margin-top: 145.5px;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  background-color: #fff;
+  color: #343a40;
+}
+.btn:hover {
+  /* background-color: #343a40; */
+  /* background-color: crimson; */
+  background-image: linear-gradient(90deg, #037ade, #03e5b7);
+  color: #fff;
+}
+.btn-1:hover {
+  /* background-color: #343a40; */
+  background-color: #343a40;
+  color: #fff;
+}
+.li-nav {
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.li-nav:hover {
+  color: #f1f3f5;
+}
+
+.projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  height: 70vh;
+  background-color: #111;
+  position: relative;
+}
+
+.skills-box {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  height: 300px;
+  width: 300px;
+  background-color: #333;
+  padding: 30px;
+  border-radius: 9px;
+  color: #fff;
+}
+
+.skill-h {
+  font-family: "Ubuntu";
+  font-size: 30px;
+}
+.skill-p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.skills-box:hover {
+  transform: scale(1.05);
+  /* background-color: crimson; */
+  background-image: linear-gradient(90deg, #037ade, #03e5b7);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.proj-h {
+  font-family: "Ubuntu";
+  font-size: 40px;
+  position: absolute;
+  top: 10%;
+  color: #fff;
+}
+.services {
+  height: 130vh;
+  background-color: #f1f3f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  position: relative;
+}
+
+.service {
+  margin-top: 120px;
+  background-color: crimson;
+  height: 500px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 25px;
+  border: solid 1px black;
+  border-radius: 9px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-h {
+  font-family: "Ubuntu";
+  font-size: 40px;
+  color: #fff;
+}
+.service-p {
+  font-size: 23px;
+  color: #fff;
+}
+.price {
+  color: #fff;
+}
+.ser-h {
+  font-weight: 700;
+  font-family: "Ubuntu";
+  font-size: 40px;
+  color: #111;
+  top: 10%;
+
+  position: absolute;
+}
+.contacts {
+  height: 50vh;
+}
+
+#contact {
+  /* background-color: #6a9ac4; */
+  background-image: linear-gradient(90deg, #037ade, #03e5b7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-box {
+  width: clamp(100px, 90%, 1000px);
+  margin: 80px 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contact-links,
+.contact-form-wrapper {
+  width: 50%;
+  padding: 8% 5% 10% 5%;
+}
+
+.contact-links {
+  background-color: #1f2e43;
+  background: radial-gradient(
+      circle at 55% 92%,
+      #426691 0 12%,
+      transparent 12.2%
+    ),
+    radial-gradient(circle at 94% 72%, #426691 0 10%, transparent 10.2%),
+    radial-gradient(
+      circle at 20% max(78%, 350px),
+      #263a53 0 7%,
+      transparent 7.2%
+    ),
+    radial-gradient(circle at 0% 0%, #263a53 0 40%, transparent 40.2%), #1f2e43;
+  border-radius: 10px 0 0 10px;
+}
+
+.contact-form-wrapper {
+  background-color: #ffffff8f;
+  border-radius: 0 10px 10px 0;
+}
+h2 {
+  font-family: "Arimo", sans-serif;
+  color: #fff;
+  font-size: clamp(30px, 6vw, 60px);
+  letter-spacing: 2px;
+  text-align: center;
+  transform: scale(0.95, 1);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.link {
+  margin: 10px;
+  cursor: pointer;
+}
+
+img {
+  width: 45px;
+  height: 45px;
+  /* filter: hue-rotate(220deg) drop-shadow(2px 4px 4px #0006); */
+  transition: 0.2s;
+  user-select: none;
+}
+
+img:hover {
+  transform: scale(1.1, 1.1);
+}
+
+img:active {
+  transform: scale(1.1, 1.1);
+  /* filter: hue-rotate(220deg) drop-shadow(2px 4px 4px #222) sepia(0.3); */
+}
+
+.form-item {
+  position: relative;
+}
+
+label,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+label {
+  position: absolute;
+  top: 10px;
+  left: 2%;
+  color: #999;
+  font-size: clamp(14px, 1.5vw, 18px);
+  pointer-events: none;
+  user-select: none;
+}
+
+input,
+textarea {
+  width: 100%;
+  outline: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 12px;
+  /*   font-size: clamp(15px, 1.5vw, 18px); */
+}
+.submit-btn {
+  background-color: #fd917e;
+  /* filter: drop-shadow(2px 2px 3px #0003); */
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(16px, 1.6vw, 18px);
+  display: block;
+  padding: 12px 20px;
+  margin: 2px auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.submit-btn:active {
+  transform: scale(1.1, 1.1);
+  filter: sepia(0.5);
+}
