@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dark Mode Button</title>
+</head>
+<body>
+<style>
+  body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+  }
+ .dark-mode {
+  background-color: black;
+  color: white;
+}
+.butt{
+  width:200px;
+  height:70px;
+  font-size:25px;
+  border:0;
+  border:2px solid lightcoral;
+}
+</style>
+
+<h2>Toggle Dark/Light Mode</h2>
+<p>Click the button to toggle between dark and light mode for this page.</p>
+
+<center><button class="butt" onclick="myFunction()">Dark Mode</button></center>
+
+<script>
+  function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
+</script>
+</body>
+</html>
