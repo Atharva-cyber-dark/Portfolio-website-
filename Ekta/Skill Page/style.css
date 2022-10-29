@@ -1,0 +1,28 @@
+.skills_wrapper {
+  font-family: "Open Sans", sans-serif;
+  background-color: #3d3e42;
+  color: #9099a0;
+}
+
+img {
+  width: 128px;
+  height: 128px;
+}
+
+.main {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.skill {
+  text-align: center;
+}
+
+.skill h4 {
+  color: #eee;
+}
+
+.skill p {
+  line-height: 5px;
+}
