@@ -1,0 +1,106 @@
+Try Docker Compose
+
+This tutorial is designed to introduce the key concepts of Docker Compose whilst building a simple Python web application. The application uses the Flask framework and maintains a hit counter in Redis.
+
+The concepts demonstrated here should be understandable even if you’re not familiar Python.
+
+Prerequisites
+You need to have Docker Engine and Docker Compose on your machine. You can either:
+
+Install Docker Engine and Docker Compose as standalone binaries
+Install Docker Desktop which includes both Docker Engine and Docker Compose
+You don’t need to install Python or Redis, as both are provided by Docker images.
+
+Step 1: Define the application dependencies
+Create a directory for the project:
+
+
+ mkdir composetest
+ cd composetest
+Create a file called app.py in your project directory and paste the following code in:
+
+
+import time
+
+import redis
+from flask import Flask
+
+app = Flask(__name__)
+cache = redis.Redis(host='redis', port=6379)
+
+def get_hit_count():
+    retries = 5
+    while True:
+        try:
+            return cache.incr('hits')
+        except redis.exceptions.ConnectionError as exc:
+            if retries == 0:
+                raise exc
+            retries -= 1
+            time.sleep(0.5)
+
+@app.route('/')
+def hello():
+    count = get_hit_count()
+    return 'Hello World! I have been seen {} times.\n'.format(count)
+In this example, redis is the hostname of the redis container on the application’s network. We use the default port for Redis, 6379.
+
+Handling transient errors
+
+Note the way the get_hit_count function is written. This basic retry loop lets us attempt our request multiple times if the redis service is not available. This is useful at startup while the application comes online, but also makes the application more resilient if the Redis service needs to be restarted anytime during the app’s lifetime. In a cluster, this also helps handling momentary connection drops between nodes.
+
+Create another file called requirements.txt in your project directory and paste the following code in:
+
+
+flask
+redis
+Step 2: Create a Dockerfile
+The Dockerfile is used to build a Docker image. The image contains all the dependencies the Python application requires, including Python itself.
+
+In your project directory, create a file named Dockerfile and paste the following code in:
+
+
+# syntax=docker/dockerfile:1
+FROM python:3.7-alpine
+WORKDIR /code
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . .
+CMD ["flask", "run"]
+This tells Docker to:
+
+Build an image starting with the Python 3.7 image.
+Set the working directory to /code.
+Set environment variables used by the flask command.
+Install gcc and other dependencies
+Copy requirements.txt and install the Python dependencies.
+Add metadata to the image to describe that the container is listening on port 5000
+Copy the current directory . in the project to the workdir . in the image.
+Set the default command for the container to flask run.
+Important
+
+Check that the Dockerfile has no file extension like .txt. Some editors may append this file extension automatically and which results in an error when you run the application.
+
+For more information on how to write Dockerfiles, see the Docker user guide and the Dockerfile reference.
+
+Step 3: Define services in a Compose file
+Create a file called docker-compose.yml in your project directory and paste the following:
+
+
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+  redis:
+    image: "redis:alpine"
+This Compose file defines two services: web and redis.
+
+The web service uses an image that’s built from the Dockerfile in the current directory. It then binds the container and the host machine to the exposed port, 8000. This example service uses the default port for the Flask web server, 5000.
+
+The redis service uses a public Redis image pulled from the Docker Hub registry.
